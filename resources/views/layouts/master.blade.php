@@ -60,7 +60,7 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js') }} in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js') }}.  -->
-   
+    <script src="{{ asset('html/assets/vendor/js/template-customizer.js')}}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('html/assets/js/config.js') }}"></script>
 </head>
@@ -73,15 +73,15 @@
   <div class="layout-container">
     @include('layouts.inc.sidebar')
 
-    
-
+  
     <!-- Layout container -->
     <div class="layout-page">
       
-      
+      @include('layouts.inc.header')
+  
 
 
-@include('layouts.inc.header')
+
       
 
 @yield('content')
@@ -132,11 +132,6 @@
     <!-- / Layout wrapper -->
   
     
-    <div class="buy-now">
-      <a href="https://1.envato.market/materialize_admin" target="_blank" class="btn btn-danger btn-buy-now">Buy Now</a>
-    </div>
-    
-  
     
   
     <!-- Core JS -->
@@ -156,8 +151,8 @@
   
     <!-- Vendors JS -->
     <script src="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/swiper/swiper.js') }}"></script>
+   <script src="{{ asset('html/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+   <script src="{{ asset('html/assets/vendor/libs/swiper/swiper.js') }}"></script>
   
     <!-- Main JS -->
     <script src="{{ asset('html/assets/js/main.js') }}"></script>
