@@ -46,31 +46,82 @@
     
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
-      <li class="menu-item active open">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <li class="menu-item active">
+        <a href="javascript:void(0);" class="menu-link ">
           <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
           <div data-i18n="Dashboards">Dashboards</div>
-          <div class="badge bg-primary rounded-pill ms-auto">3</div>
+         
+        </a>
+       
+      </li>
+  
+      <!-- Roles $ Pemissions -->
+      <li class="menu-header fw-light mt-4">
+        <span class="menu-header-text">Users &amp; Privileges</span>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
+          <div data-i18n="Users">Users</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="dashboards-ecommerce.html" class="menu-link">
-              <div data-i18n="eCommerce">eCommerce</div>
-            </a>
-          </li>
-          <li class="menu-item active">
-            <a href="dashboards-crm.html" class="menu-link">
-              <div data-i18n="CRM">CRM</div>
+            <a href="app-user-list.html" class="menu-link">
+              <div>List</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="index.html" class="menu-link">
-              <div data-i18n="Analytics">Analytics</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <div>Manage Users</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="app-user-view-account.html" class="menu-link">
+                  <div data-i18n="Account">Account</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="app-user-view-security.html" class="menu-link">
+                  <div data-i18n="Security">Security</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="app-user-view-billing.html" class="menu-link">
+                  <div data-i18n="Billing & Plans">Billing & Plans</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="app-user-view-notifications.html" class="menu-link">
+                  <div data-i18n="Notifications">Notifications</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="app-user-view-connections.html" class="menu-link">
+                  <div data-i18n="Connections">Connections</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class='menu-icon tf-icons mdi mdi-shield-outline'></i>
+          <div data-i18n="Roles & Permissions">Roles & Permissions</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="app-access-roles.html" class="menu-link">
+              <div data-i18n="Roles">Roles</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="app-access-permission.html" class="menu-link">
+              <div data-i18n="Permission">Permission</div>
             </a>
           </li>
         </ul>
       </li>
-  
       <!-- Layouts -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -184,69 +235,7 @@
           </li>
         </ul>
       </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
-          <div data-i18n="Users">Users</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="app-user-list.html" class="menu-link">
-              <div data-i18n="List">List</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="View">View</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="app-user-view-account.html" class="menu-link">
-                  <div data-i18n="Account">Account</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-security.html" class="menu-link">
-                  <div data-i18n="Security">Security</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-billing.html" class="menu-link">
-                  <div data-i18n="Billing & Plans">Billing & Plans</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-notifications.html" class="menu-link">
-                  <div data-i18n="Notifications">Notifications</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-connections.html" class="menu-link">
-                  <div data-i18n="Connections">Connections</div>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class='menu-icon tf-icons mdi mdi-shield-outline'></i>
-          <div data-i18n="Roles & Permissions">Roles & Permissions</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="app-access-roles.html" class="menu-link">
-              <div data-i18n="Roles">Roles</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="app-access-permission.html" class="menu-link">
-              <div data-i18n="Permission">Permission</div>
-            </a>
-          </li>
-        </ul>
-      </li>
+      
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons mdi mdi-file-outline"></i>
@@ -762,194 +751,8 @@
         </a>
       </li>
   
-      <!-- Forms & Tables -->
-      <li class="menu-header fw-light mt-4">
-        <span class="menu-header-text">Forms &amp; Tables</span>
-      </li>
-      <!-- Forms -->
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons mdi mdi-form-select"></i>
-          <div data-i18n="Form Elements">Form Elements</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="forms-basic-inputs.html" class="menu-link">
-              <div data-i18n="Basic Inputs">Basic Inputs</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-input-groups.html" class="menu-link">
-              <div data-i18n="Input groups">Input groups</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-custom-options.html" class="menu-link">
-              <div data-i18n="Custom Options">Custom Options</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-editors.html" class="menu-link">
-              <div data-i18n="Editors">Editors</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-file-upload.html" class="menu-link">
-              <div data-i18n="File Upload">File Upload</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-pickers.html" class="menu-link">
-              <div data-i18n="Pickers">Pickers</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-selects.html" class="menu-link">
-              <div data-i18n="Select & Tags">Select &amp; Tags</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-sliders.html" class="menu-link">
-              <div data-i18n="Sliders">Sliders</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-switches.html" class="menu-link">
-              <div data-i18n="Switches">Switches</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-extras.html" class="menu-link">
-              <div data-i18n="Extras">Extras</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons mdi mdi-cube-outline"></i>
-          <div data-i18n="Form Layouts">Form Layouts</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="form-layouts-vertical.html" class="menu-link">
-              <div data-i18n="Vertical Form">Vertical Form</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="form-layouts-horizontal.html" class="menu-link">
-              <div data-i18n="Horizontal Form">Horizontal Form</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="form-layouts-sticky.html" class="menu-link">
-              <div data-i18n="Sticky Actions">Sticky Actions</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons mdi mdi-dots-horizontal"></i>
-          <div data-i18n="Form Wizard">Form Wizard</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="form-wizard-numbered.html" class="menu-link">
-              <div data-i18n="Numbered">Numbered</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="form-wizard-icons.html" class="menu-link">
-              <div data-i18n="Icons">Icons</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <a href="form-validation.html" class="menu-link">
-          <i class="menu-icon tf-icons mdi mdi-checkbox-marked-circle-outline"></i>
-          <div data-i18n="Form Validation">Form Validation</div>
-        </a>
-      </li>
-      <!-- Tables -->
-      <li class="menu-item">
-        <a href="tables-basic.html" class="menu-link">
-          <i class="menu-icon tf-icons mdi mdi-table"></i>
-          <div data-i18n="Tables">Tables</div>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons mdi mdi-grid"></i>
-          <div data-i18n="Datatables">Datatables</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="tables-datatables-basic.html" class="menu-link">
-              <div data-i18n="Basic">Basic</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="tables-datatables-advanced.html" class="menu-link">
-              <div data-i18n="Advanced">Advanced</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="tables-datatables-extensions.html" class="menu-link">
-              <div data-i18n="Extensions">Extensions</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-  
-      <!-- Charts & Maps -->
-      <li class="menu-header fw-light mt-4">
-        <span class="menu-header-text">Charts &amp; Maps</span>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons mdi mdi-chart-pie-outline"></i>
-          <div data-i18n="Charts">Charts</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="charts-apex.html" class="menu-link">
-              <div data-i18n="Apex Charts">Apex Charts</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="charts-chartjs.html" class="menu-link">
-              <div data-i18n="ChartJS">ChartJS</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <a href="maps-leaflet.html" class="menu-link">
-          <i class="menu-icon tf-icons mdi mdi-map-outline"></i>
-          <div data-i18n="Leaflet Maps">Leaflet Maps</div>
-        </a>
-      </li>
-  
-      <!-- Misc -->
-      <li class="menu-header fw-light mt-4">
-        <span class="menu-header-text">Misc</span>
-      </li>
-      <li class="menu-item">
-        <a href="https://pixinvent.ticksy.com/" target="_blank" class="menu-link">
-          <i class="menu-icon tf-icons mdi mdi-lifebuoy"></i>
-          <div data-i18n="Support">Support</div>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank" class="menu-link">
-          <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
-          <div data-i18n="Documentation">Documentation</div>
-        </a>
-      </li>
-    </ul>
     
+  
     
   
   </aside>

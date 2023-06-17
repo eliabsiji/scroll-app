@@ -12,7 +12,8 @@
  -->
 <!-- beautify ignore:start -->
 
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" >
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " 
+dir="ltr" data-theme="theme-default"  data-assets-path="html/assets/" data-template="vertical-menu-template">
 
   <head>
     <meta charset="utf-8" />
@@ -48,9 +49,9 @@
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/node-waves/node-waves.css') }}" />
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/typeahead-js/typeahead.css') }}" />
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/swiper/swiper.css') }}" />
+    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/swiper/swiper.css') }}" />
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/css/pages/cards-statistics.css') }}" />
@@ -71,6 +72,7 @@
   <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar  ">
   <div class="layout-container">
+    
     @include('layouts.inc.sidebar')
 
   
@@ -93,17 +95,13 @@
           © <script>
           document.write(new Date().getFullYear())
   
-          </script>, made with <span class="text-danger">❤️</span> by <a href="https://pixinvent.com/" target="_blank" class="footer-link fw-medium">Pixinvent</a>
+          </script> Powered by <a href="#" target="_blank" class="footer-link fw-medium">Qudroid Systems</a>
         </div>
         <div>
           
-          <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank">License</a>
-          <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More Themes</a>
+      
           
-          <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-          
-          
-          <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block">Support</a>
+          <a href="#" target="_blank" class="footer-link d-none d-sm-inline-block">Support</a>
           
         </div>
       </div>
@@ -150,7 +148,7 @@
     <!-- endbuild -->
   
     <!-- Vendors JS -->
-    <script src="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+    {{-- <script src="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script> --}}
    <script src="{{ asset('html/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
    <script src="{{ asset('html/assets/vendor/libs/swiper/swiper.js') }}"></script>
   
