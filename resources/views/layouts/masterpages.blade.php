@@ -53,13 +53,9 @@ dir="ltr" data-theme="theme-default"  data-assets-path="html/assets/" data-templ
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/swiper/swiper.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/select2/select2.css') }}" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css') }}" />
-
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('html/assets/vendor/css/pages/cards-statistics.css') }}" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/css/pages/cards-analytics.css') }}" />
+<link rel="stylesheet" href="{{ asset('html/assets/vendor/css/pages/cards-analytics.css') }}" />
     <!-- Helpers -->
     <script src="{{ asset('html/assets/vendor/js/helpers.js') }}"></script>
 
@@ -85,7 +81,12 @@ dir="ltr" data-theme="theme-default"  data-assets-path="html/assets/" data-templ
       
       @include('layouts.inc.header')
   
-            @yield('content')
+
+
+
+      
+
+@yield('content')
 
        
 
@@ -154,21 +155,16 @@ dir="ltr" data-theme="theme-default"  data-assets-path="html/assets/" data-templ
     <script src="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
    <script src="{{ asset('html/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
    <script src="{{ asset('html/assets/vendor/libs/swiper/swiper.js') }}"></script>
-   
-  <script src="{{ asset('html/assets/vendor/libs/moment/moment.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/select2/select2.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/cleavejs/cleave.js') }}"></script>
-  <script src="{{ asset('html/assets/vendor/libs/cleavejs/cleave-phone.js') }}"></script>
+   <script src="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
+   <script src="{{ asset('html/assets/vendor/libs/select2/select2.js')}}"></script>
   
     <!-- Main JS -->
     <script src="{{ asset('html/assets/js/main.js') }}"></script>
   
     <!-- Page JS -->
-    <script src="{{ asset('html/assets/js/dashboards-crm.js') }}"></script>
-    <script src="{{ asset('html/assets/js/app-user-list.js')}}"></script>
+    {{-- <script src="{{ asset('html/assets/js/dashboards-crm.js') }}"></script> --}}
+    <!-- Page JS -->
+  <script src="{{ asset('html/assets/js/app-user-list.js')}}"></script>
     
   
     

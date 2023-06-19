@@ -46,8 +46,8 @@
     
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
-      <li class="menu-item active">
-        <a href="javascript:void(0);" class="menu-link ">
+      <li class="menu-item">
+        <a href="/dashboard" class="menu-link ">
           <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
           <div data-i18n="Dashboards">Dashboards</div>
          
@@ -55,6 +55,7 @@
        
       </li>
   
+      {{-- @can('user-list') --}}
       <!-- Roles $ Pemissions -->
       <li class="menu-header fw-light mt-4">
         <span class="menu-header-text">Users &amp; Privileges</span>
@@ -66,7 +67,7 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="app-user-list.html" class="menu-link">
+            <a href="{{ route('users.index') }}" class="menu-link">
               <div>List</div>
             </a>
           </li>
@@ -80,30 +81,12 @@
                   <div data-i18n="Account">Account</div>
                 </a>
               </li>
-              <li class="menu-item">
-                <a href="app-user-view-security.html" class="menu-link">
-                  <div data-i18n="Security">Security</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-billing.html" class="menu-link">
-                  <div data-i18n="Billing & Plans">Billing & Plans</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-notifications.html" class="menu-link">
-                  <div data-i18n="Notifications">Notifications</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="app-user-view-connections.html" class="menu-link">
-                  <div data-i18n="Connections">Connections</div>
-                </a>
-              </li>
+            
             </ul>
           </li>
         </ul>
       </li>
+      {{-- @endcan --}}
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class='menu-icon tf-icons mdi mdi-shield-outline'></i>
