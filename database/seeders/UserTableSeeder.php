@@ -9,12 +9,12 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash as FacadesHash;
-
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserTableSeeder extends Seeder
 {
    
-
+    use HasRoles;
     /**
      * Run the database seeds.
      *
@@ -28,12 +28,15 @@ class UserTableSeeder extends Seeder
             'password' => FacadesHash::make('12345678')
         ]);
 
-        $role = Role::find(1);
+        // $role = Role::find(1);
+
+        $role = Role::create(['name' => 'Admin']);
 
         $permissions = Permission::pluck('id', 'id')->all();
 
         $role->syncPermissions($permissions);
 
         $user->assignRole([$role->id]);
+        
     }
 }

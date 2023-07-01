@@ -563,81 +563,12 @@
         </th>
         <th class="min-w-125px">SN</th>
         <th class="min-w-125px">Name</th>
-        <th class="min-w-125px">Email</th>
         <th class="min-w-125px">Roles</th>
-        <th class="min-w-125px">Last Login</th>
         <th class="min-w-125px">Joined Date</th>
         <th class="text-end min-w-100px">Actions</th>
     </tr>
 </thead>
 <tbody class="text-gray-600 fw-semibold">
-         <tr>
-            <td>
-                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                    <input class="form-check-input" type="checkbox" value="1" />
-                </div>
-            </td>
-            <td class="d-flex align-items-center">
-                <!--begin:: Avatar -->
-                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                    <a href="view.html">
-                                                        <div class="symbol-label">
-                                <img src="{{ asset('html/assets/assets/media/avatars/300-6.jpg')}}" alt="Emma Smith" class="w-100" />
-                            </div>
-                                                </a>
-                </div>
-                <!--end::Avatar-->
-                <!--begin::User details-->
-                <div class="d-flex flex-column">
-                    <a href="view.html" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-                    <span>smith@kpmg.com</span>
-                </div>
-                <!--begin::User details-->
-            </td>
-            <td>
-                Administrator                </td>
-            <td>
-                <div class="badge badge-light fw-bold">Yesterday</div>
-            </td>
-            <td>
-                                                    </td>
-            <td>
-                20 Jun 2023, 10:30 am              
-              </td>
-            <td class="text-end">
-                <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                    Actions
-                    <i class="ki-duotone ki-down fs-5 ms-1"></i>                    </a>
-                <!--begin::Menu-->
-                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="view.html" class="menu-link px-3">
-                                View
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="view.html" class="menu-link px-3">
-                                    Edit
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">
-                                    Delete
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                    </div>
-                           <!--end::Menu-->
-            </td>
-        </tr>
-
         @foreach ($data as $key => $user)
         <tr>
             <td>
@@ -646,7 +577,7 @@
                 </div>
             </td>
 
-            <td>{{ $user->id }}</td>
+            <td>{{ ++$i }}</td>
             <td class="d-flex align-items-center">
                 <!--begin:: Avatar -->
                 <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
@@ -664,7 +595,7 @@
                 </div>
                 <!--begin::User details-->
             </td>
-            <td>{{ $user->email }}</td>
+            
             <td>
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $val)
@@ -673,16 +604,7 @@
                 @endif
             </td>
             <td>
-
-                <a class="btn btn-success bt-sm" href="{{ route('users.show',$user->id) }}">Show</a>
-                @can('user-edit')
-                    <a class="btn btn-primary bt-sm" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                @endcan
-                @can('user-delete')
-                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'menu-link px-3" data-kt-users-table-filter="delete_row']) !!}
-                    {!! Form::close() !!}
-                @endcan
+                {{  $user->created_at }}
             </td>
             <td class="text-end">
                 <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -710,11 +632,9 @@
                          @endcan
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],]) !!}
                                 {!! Form::submit('Delete', ['class' => 'menu-link px-3" data-kt-users-table-filter="delete_row']) !!}
-                                {!! Form::close() !!}
-                                    Delete
-                                
+                                {!! Form::close() !!}               
                             </div>
                             <!--end::Menu item-->
                     </div>
@@ -734,9 +654,6 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->		
-
-
-     
 @endsection   
 
 
