@@ -1,172 +1,188 @@
 <!DOCTYPE html>
-<!-- =========================================================
-* Materialize - Material Design HTML Admin Template | v1.0.0
-==============================================================
 
-* Product Page: https://1.envato.market/materialize_admin
-* Created by: Pixinvent
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright Pixinvent (https://pixinvent.com)
+<html lang="en" >
+    <!--begin::Head-->
 
-=========================================================
- -->
-<!-- beautify ignore:start -->
+<head>
+        <title>Scroll | Dashboard</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content=" "/>
+        <meta name="keywords" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>      
+   
+        <link rel="shortcut icon" href="{{ asset('html/assets/assets/media/logos/favicon.ico')}}"/>
 
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" >
+        <!--begin::Fonts(mandatory for all pages)-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>        <!--end::Fonts-->
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        @if (Route::is('dashboard'))
+             @include('layouts.pages-assets.css.dashboard-css')
+        @endif
+        @if (Route::is('users.*'))
+            @include('layouts.pages-assets.css.users-list-css')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        @endif
 
-    <title>Dashboard | Scroll 1.0</title>
-
-    
-    <meta name="description" content="" />
-    <meta name="keywords" content="">
+        
   
-    
- 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://demos.pixinvent.com/materialize-html-admin-template/assets/img/favicon/favicon.ico" />
+    </head>
+    <!--end::Head-->
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!--begin::Body-->
+    <body  id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true"  class="app-default" >
+        <!--begin::Theme mode setup on page load-->
+<script>
+	var defaultThemeMode = "light";
+	var themeMode;
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/fonts/materialdesignicons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/fonts/fontawesome.css') }}" />
+	if ( document.documentElement ) {
+		if ( document.documentElement.hasAttribute("data-bs-theme-mode")) {
+			themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+		} else {
+			if ( localStorage.getItem("data-bs-theme") !== null ) {
+				themeMode = localStorage.getItem("data-bs-theme");
+			} else {
+				themeMode = defaultThemeMode;
+			}			
+		}
 
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/css/rtl/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('html/assets/css/demo.css') }}" />
+		if (themeMode === "system") {
+			themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+		}
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/node-waves/node-waves.css') }}" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/typeahead-js/typeahead.css') }}" />
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/libs/swiper/swiper.css') }}" />
+		document.documentElement.setAttribute("data-bs-theme", themeMode);
+	}            
+</script>
 
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="{{ asset('html/assets/vendor/css/pages/cards-statistics.css') }}" />
-<link rel="stylesheet" href="{{ asset('html/assets/vendor/css/pages/cards-analytics.css') }}" />
-    <!-- Helpers -->
-    <script src="{{ asset('html/assets/vendor/js/helpers.js') }}"></script>
+<!--begin::App-->
+<div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+    <!--begin::Page-->
+    <div class="app-page  flex-column flex-column-fluid " id="kt_app_page">     
+        
+                    
+<!--begin::Header-->
+<div id="kt_app_header" class="app-header ">
 
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js') }} in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js') }}.  -->
-    <script src="{{ asset('html/assets/vendor/js/template-customizer.js')}}"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('html/assets/js/config.js') }}"></script>
-</head>
+                        <!--begin::Header container-->
+            <div class="app-container  container-fluid d-flex align-items-stretch justify-content-between " id="kt_app_header_container">
+                
+	<!--begin::Sidebar mobile toggle-->
+	<div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
+		<div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+			<i class="ki-duotone ki-abstract-14 fs-2 fs-md-1"><span class="path1"></span><span class="path2"></span></i>		</div>
+	</div>
+	<!--end::Sidebar mobile toggle-->
+	
 
-<body>
+	<!--begin::Mobile logo-->
+	<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+		<a href="assets/index.html')}}" class="d-lg-none">
+			<img alt="Logo" src="{{ asset('html/assets/assets/media/logos/default-small.svg')}}" class="h-30px"/>
+		</a>
+	</div>
+	<!--end::Mobile logo-->
 
- 
-  <!-- Layout wrapper -->
-<div class="layout-wrapper layout-content-navbar  ">
-  <div class="layout-container">
-    @include('layouts.inc.sidebar')
+<!--begin::Header wrapper-->
+<div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+			
+<!--begin::Menu wrapper-->
+<div 
+    class="
+        app-header-menu 
+        app-header-mobile-drawer 
+        align-items-stretch
+    "
+
+    data-kt-drawer="true"
+	data-kt-drawer-name="app-header-menu"
+	data-kt-drawer-activate="{default: true, lg: false}"
+	data-kt-drawer-overlay="true"
+	data-kt-drawer-width="250px"
+	data-kt-drawer-direction="end"
+	data-kt-drawer-toggle="#kt_app_header_menu_toggle"
+
+    data-kt-swapper="true"
+    data-kt-swapper-mode="{default: 'append', lg: 'prepend'}"
+    data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}"
+>   
+  
+</div>
+<!--end::Menu wrapper-->
+	
+	
+@include('layouts.inc.header')
+
+        <!--begin::Wrapper-->
+        <div class="app-wrapper  flex-column flex-row-fluid " id="kt_app_wrapper">
+            
+@include('layouts.inc.sidebar')
 
   
-    <!-- Layout container -->
-    <div class="layout-page">
-      
-      @include('layouts.inc.header')
-  
-
-
-
-      
 
 @yield('content')
-<!-- Footer -->
-<footer class="content-footer footer bg-footer-theme">
-    <div class="container-xxl">
-      <div class="footer-container d-flex align-items-center justify-content-between py-3 flex-md-row flex-column">
-        <div class="mb-2 mb-md-0">
-          © <script>
-          document.write(new Date().getFullYear())
-  
-          </script>, made with <span class="text-danger">❤️</span> by <a href="https://pixinvent.com/" target="_blank" class="footer-link fw-medium">Pixinvent</a>
-        </div>
-        <div>
-          
-          <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank">License</a>
-          <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More Themes</a>
-          
-          <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-          
-          
-          <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block">Support</a>
-          
-        </div>
-      </div>
+
+
+
+                </div>
+                <!--end::Content wrapper-->
+
+
+
+
+                                    
+<!--begin::Footer-->
+<div id="kt_app_footer" class="app-footer " >
+            <!--begin::Footer container-->
+        <div class="app-container  container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3 ">
+            <!--begin::Copyright-->
+<div class="text-dark order-2 order-md-1">
+    <span class="text-muted fw-semibold me-1">2023&copy;</span>
+    <a href="https://keenthemes.com/" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+</div>
+<!--end::Copyright-->
+
+<!--begin::Menu-->
+<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+    <li class="menu-item">
+        <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">
+        About
+       </a>
+    <li> 
+</ul>
+<!--end::Menu-->        
+     </div>
+        <!--end::Footer container-->
     </div>
-  </footer>
-  <!-- / Footer -->
-  
-            
-            <div class="content-backdrop fade"></div>
-          </div>
-          <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
-      </div>
-  
-      
-      
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-      
-      
-      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-      <div class="drag-target"></div>
-      
-    </div>
-    <!-- / Layout wrapper -->
-  
-    
-    
-  
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js') }} -->
-    <script src="{{ asset('html/assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('html/assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('html/assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('html/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('html/assets/vendor/libs/node-waves/node-waves.js') }}"></script>
-    
-    <script src="{{ asset('html/assets/vendor/libs/hammer/hammer.js') }}"></script>
-    <script src="{{ asset('html/assets/vendor/libs/i18n/i18n.js') }}"></script>
-    <script src="{{ asset('html/assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
-    
-    <script src="{{ asset('html/assets/vendor/js/menu.js') }}"></script>
-    <!-- endbuild -->
-  
-    <!-- Vendors JS -->
-    <script src="{{ asset('html/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-   <script src="{{ asset('html/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-   <script src="{{ asset('html/assets/vendor/libs/swiper/swiper.js') }}"></script>
-  
-    <!-- Main JS -->
-    <script src="{{ asset('html/assets/js/main.js') }}"></script>
-  
-    <!-- Page JS -->
-    <script src="{{ asset('html/assets/js/dashboards-crm.js') }}"></script>
-    
-  
-    
-    
-  </body>
-  
-  </html>
-  
-  
-  
-  
+<!--end::Footer--> 
+     </div>
+    <!--end:::Main-->
+  </div>
+        <!--end::Wrapper-->
+     </div>
+    <!--end::Page-->
+</div>
+<!--end::App-->
+
+	
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+	<i class="ki-duotone ki-arrow-up"><span class="path1"></span><span class="path2"></span></i></div>
+<!--end::Scrolltop-->
+
+                   
+        
+        <!--begin::Javascript-->
+        <script>
+            // var hostUrl = "{{ asset('html/assets/assets/index.html')}}";        </script>
+
+        @if (Route::is('dashboard'))
+             @include('layouts.pages-assets.js.dashboard-js')
+        @endif
+        @if (Route::is('users.*'))
+              @include('layouts.pages-assets.js.users-list-js')
+        @endif
+
+        
+            </body>
+    <!--end::Body-->
+
+</html>
