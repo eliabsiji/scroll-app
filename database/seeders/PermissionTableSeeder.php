@@ -15,6 +15,9 @@ class PermissionTableSeeder extends Seeder
     {
         $permissions = [
            'user-list',
+           'user-create',
+           'user-edit',
+           'user-delete',
            'role-list',
            'role-create',
            'role-edit',

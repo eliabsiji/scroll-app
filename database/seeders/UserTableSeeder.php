@@ -10,8 +10,11 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 
+
 class UserTableSeeder extends Seeder
 {
+   
+
     /**
      * Run the database seeds.
      *

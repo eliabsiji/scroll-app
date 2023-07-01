@@ -14,6 +14,17 @@ use Illuminate\Http\RedirectResponse;
     
 class UserController extends Controller
 {
+
+
+    function __construct()
+    {
+         $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:user-create', ['only' => ['create','store']]);
+         $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +33,10 @@ class UserController extends Controller
     public function index(Request $request): View
     {
         $data = User::latest()->paginate(5);
-  
+        $roles = Role::pluck('name','name')->all();
         return view('users.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+            ->with('i', ($request->input('page', 1) - 1) * 5)
+            ->with('roles',$roles);
     }
     
     /**
@@ -106,6 +118,7 @@ class UserController extends Controller
             'roles' => 'required'
         ]);
     
+      
         $input = $request->all();
         if(!empty($input['password'])){ 
             $input['password'] = Hash::make($input['password']);
