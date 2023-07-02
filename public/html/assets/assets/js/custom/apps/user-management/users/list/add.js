@@ -82,7 +82,7 @@ var KTUsersAddUser = function () {
                                 }
                             });
 
-                            //form.submit(); // Submit form
+                            form.submit(); // Submit form
                         }, 2000);
                     } else {
                         // Show popup warning. For more info check the plugin's official documentation: https://sweetalert2.github.io/
