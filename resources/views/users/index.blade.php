@@ -131,6 +131,7 @@
         <select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="two-step" data-hide-search="true">
             <option></option>
             <option value="{{ $role->name }}">{{ $role->name }}</option>
+            <option value="pool">pool</option>
         </select>
     </div>
     <!--end::Input group-->

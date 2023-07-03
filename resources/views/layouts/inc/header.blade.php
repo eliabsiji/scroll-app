@@ -1083,12 +1083,13 @@
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
-    <div class="menu-item px-5">
+    <div class="menu-item px-5 my-1">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();   this.closest('form').submit();" ><i class="mdi mdi-logout text-muted fs-lg align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a> 
-        </form>
+        <a class="menu-link px-5" href="{{ route('logout') }}" onclick="event.preventDefault();   this.closest('form').submit();" ><i class="mdi mdi-logout text-muted fs-lg align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a> 
+        
         </a>
+       </form>
     </div>
     <!--end::Menu item-->
 </div>
