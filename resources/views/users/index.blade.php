@@ -118,7 +118,6 @@
             <option></option>
             @foreach ($role_perm as $role)
             <option value="{{ $role->name }}">{{ $role->name }}</option>
-                
             @endforeach
           
         </select>
