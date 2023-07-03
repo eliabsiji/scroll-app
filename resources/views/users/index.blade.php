@@ -564,6 +564,7 @@
         <th class="min-w-125px">SN</th>
         <th class="min-w-125px">Name</th>
         <th class="min-w-125px">Roles</th>
+        <th class="min-w-125px">Roles</th>
         <th class="min-w-125px">Joined Date</th>
         <th class="text-end min-w-100px">Actions</th>
     </tr>
@@ -606,6 +607,9 @@
             <td>
                 {{  $user->created_at }}
             </td>
+            <td>
+                {{  $user->created_at }}
+            </td>
             <td class="text-end">
                 <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                     Actions
@@ -630,6 +634,7 @@
                             </div>
                             <!--end::Menu item-->
                          @endcan
+                         @can('user-edit')
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
                                 {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],]) !!}
@@ -637,6 +642,7 @@
                                 {!! Form::close() !!}               
                             </div>
                             <!--end::Menu item-->
+                            @endcan
                     </div>
                            <!--end::Menu-->
             </td>
