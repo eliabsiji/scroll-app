@@ -428,9 +428,8 @@
         </th>
         <th class="min-w-125px">SN</th>
         <th class="min-w-125px">Name</th>
-        <th class="min-w-125px">Email</th>
         <th class="min-w-125px">Roles</th>
-        <th class="min-w-125px">Last Login</th>
+        <th class="min-w-125px">Email</th>
         <th class="min-w-125px">Joined Date</th>
         <th class="text-end min-w-100px">Actions</th>
     </tr>
@@ -471,16 +470,10 @@
                 @endif
             </td>
             <td>
-
-                <a class="btn btn-success bt-sm" href="{{ route('users.show',$user->id) }}">Show</a>
-                @can('user-edit')
-                    <a class="btn btn-primary bt-sm" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                @endcan
-                @can('user-delete')
-                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'menu-link px-3" data-kt-users-table-filter="delete_row']) !!}
-                    {!! Form::close() !!}
-                @endcan
+                {{  $user->email }}
+            </td>
+            <td>
+                {{  $user->created_at }}
             </td>
             <td class="text-end">
                 <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
