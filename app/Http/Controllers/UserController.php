@@ -34,9 +34,12 @@ class UserController extends Controller
     {
         $data = User::latest()->paginate(5);
         $roles = Role::pluck('name','name')->all();
+        $role_permissions = Role::with('permissions')->get();
+
         return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5)
-            ->with('roles',$roles);
+            ->with('roles',$roles)
+            ->with('role_perm',$role_permissions);
     }
     
     /**

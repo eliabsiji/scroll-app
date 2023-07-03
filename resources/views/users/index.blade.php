@@ -57,59 +57,8 @@
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container  container-xxl ">
 
-              <!--begin::Stats-->
-<div class="row g-4 g-xl-9">
-  
 
-    <div class="col-lg-4 col-xxl-4">
         
-        <!--begin::Clients-->
-        <div class="card  h-100">
-            <div class="card-body p-9">
-                <!--begin::Heading-->
-                <div class="fs-2hx fw-bold">49</div>
-                <div class="fs-4 fw-semibold text-gray-400 mb-7">School Admin</div>
-                <!--end::Heading-->
-
-                <!--begin::Users group-->
-                <div class="symbol-group symbol-hover mb-9">
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                                    <span class="symbol-label bg-warning text-inverse-warning fw-bold">A</span>
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-                                                    <img alt="Pic" src="{{ asset('html/assets/assets/media/avatars/300-11.jpg')}}" />
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michelle Swanston">
-                                                    <img alt="Pic" src="{{ asset('html/assets/assets/media/avatars/300-7.jpg')}}" />
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Francis Mitcham">
-                                                    <img alt="Pic" src="{{ asset('html/assets/assets/media/avatars/300-20.jpg')}}" />
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Susan Redwood">
-                                                    <span class="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Melody Macy">
-                                                    <img alt="Pic" src="{{ asset('html/assets/assets/media/avatars/300-2.jpg')}}" />
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Perry Matthew">
-                                                    <span class="symbol-label bg-info text-inverse-info fw-bold">P</span>
-                                            </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Barry Walter">
-                                                    <img alt="Pic" src="{{ asset('html/assets/assets/media/avatars/300-12.jpg')}}" />
-                                            </div>
-                                <a href="#" class="symbol symbol-35px symbol-circle"  data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
-                        <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">+42</span>
-                    </a>
-                </div>
-                <!--end::Users group-->
-
-                
-            </div>
-        </div>
-        <!--end::Clients-->   
- </div>
-</div>
-<!--end::Stats-->
 
 
 <!--begin::Toolbar-->
@@ -167,11 +116,11 @@
         <label class="form-label fs-6 fw-semibold">Role:</label>
         <select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
             <option></option>
-            <option value="Administrator">Administrator</option>
-            <option value="Analyst">Analyst</option>
-            <option value="Developer">Developer</option>
-            <option value="Support">Support</option>
-            <option value="Trial">Trial</option>
+            @foreach ($role_perm as $role)
+            <option value="{{ $role->name }}">{{ $role->name }}</option>
+                
+            @endforeach
+          
         </select>
     </div>
     <!--end::Input group-->
@@ -181,7 +130,7 @@
         <label class="form-label fs-6 fw-semibold">Two Step Verification:</label>
         <select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="two-step" data-hide-search="true">
             <option></option>
-            <option value="Enabled">Enabled</option>
+            <option value="{{ $role->name }}">{{ $role->name }}</option>
         </select>
     </div>
     <!--end::Input group-->
@@ -223,91 +172,8 @@
 </div>
 <!--end::Group actions-->
 
-<!--begin::Modal - Adjust Balance-->
-<div class="modal fade" id="kt_modal_export_users" tabindex="-1" aria-hidden="true">
-<!--begin::Modal dialog-->
-<div class="modal-dialog modal-dialog-centered mw-650px">
-    <!--begin::Modal content-->
-    <div class="modal-content">
-        <!--begin::Modal header-->
-        <div class="modal-header">
-            <!--begin::Modal title-->
-            <h2 class="fw-bold">Export Users</h2>
-            <!--end::Modal title-->
 
-            <!--begin::Close-->
-            <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
-                <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>                </div>
-            <!--end::Close-->
-        </div>
-        <!--end::Modal header-->
 
-        <!--begin::Modal body-->
-        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-            <!--begin::Form-->
-            <form id="kt_modal_export_users_form" class="form" action="#">
-                <!--begin::Input group-->
-                <div class="fv-row mb-10">
-                    <!--begin::Label-->
-                    <label class="fs-6 fw-semibold form-label mb-2">Select Roles:</label>
-                    <!--end::Label-->
-
-                    <!--begin::Input-->
-                    <select name="role" data-control="select2" data-placeholder="Select a role" data-hide-search="true" class="form-select form-select-solid fw-bold">
-                        <option></option>
-                        <option value="Administrator">Administrator</option>
-                        <option value="Analyst">Analyst</option>
-                        <option value="Developer">Developer</option>
-                        <option value="Support">Support</option>
-                        <option value="Trial">Trial</option>
-                    </select>
-                    <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-
-                <!--begin::Input group-->
-                <div class="fv-row mb-10">
-                    <!--begin::Label-->
-                    <label class="required fs-6 fw-semibold form-label mb-2">Select Export Format:</label>
-                    <!--end::Label-->
-
-                    <!--begin::Input-->
-                    <select name="format" data-control="select2" data-placeholder="Select a format" data-hide-search="true" class="form-select form-select-solid fw-bold">
-                        <option></option>
-                        <option value="excel">Excel</option>
-                        <option value="pdf">PDF</option>
-                        <option value="cvs">CVS</option>
-                        <option value="zip">ZIP</option>
-                    </select>
-                    <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-
-                <!--begin::Actions-->
-                <div class="text-center">
-                    <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">
-                        Discard
-                    </button>
-
-                    <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                        <span class="indicator-label">
-                            Submit
-                        </span>
-                        <span class="indicator-progress">
-                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                        </span>
-                    </button>
-                </div>
-                <!--end::Actions-->
-            </form>
-            <!--end::Form-->
-        </div>
-        <!--end::Modal body-->
-    </div>
-    <!--end::Modal content-->
-</div>
-<!--end::Modal dialog-->
-</div>
 <!--end::Modal - New Card-->
 
 <!--begin::Modal - Add task-->
@@ -564,7 +430,7 @@
         <th class="min-w-125px">SN</th>
         <th class="min-w-125px">Name</th>
         <th class="min-w-125px">Roles</th>
-        <th class="min-w-125px">Roles</th>
+        <th class="min-w-125px">Email</th>
         <th class="min-w-125px">Joined Date</th>
         <th class="text-end min-w-100px">Actions</th>
     </tr>
@@ -605,7 +471,7 @@
                 @endif
             </td>
             <td>
-                {{  $user->created_at }}
+                {{  $user->email }}
             </td>
             <td>
                 {{  $user->created_at }}
