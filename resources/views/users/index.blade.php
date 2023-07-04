@@ -291,7 +291,6 @@
                                     <input class="form-check-input me-3" name="roles[]" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' />
                                     <!--end::Input-->
 
-                                    
                                     <!--begin::Label-->
                                     <label class="form-check-label" for="kt_modal_update_role_option_0">
                                         <div class="fw-bold text-gray-800">{{ $name }}</div>
