@@ -190,7 +190,22 @@
             <!--end::Close-->
         </div>
         <!--end::Modal header-->
-
+        @if (count($errors) > 0)
+        <div class="row animated fadeInUp">
+              @if (count($errors) > 0)
+        <div class="alert alert-warning fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+         </div>
+         @endif
+        </div>
+           @endif
+    
         <!--begin::Modal body-->
         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
             <!--begin::Form-->
@@ -281,29 +296,26 @@
                         <!--end::Label-->
 
                         <!--begin::Roles-->
-                        @foreach ($roles as $role=>$name )
+                    
                 
                              <!--begin::Input row-->
-                            <div class="d-flex fv-row">
-                                <!--begin::Radio-->
-                                <div class="form-check form-check-custom form-check-solid">
+                             <div class="fv-row mb-7">
+                             
                                     <!--begin::Input-->
-                                    <input class="form-check-input me-3" name="roles[]" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' />
+                                    {{-- <input class="form-check-input me-3" name="roles" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' /> --}}
                                     <!--end::Input-->
-
-                                    <!--begin::Label-->
-                                    <label class="form-check-label" for="kt_modal_update_role_option_0">
-                                        <div class="fw-bold text-gray-800">{{ $name }}</div>
-                                        <div class="text-gray-600">Best for business owners and company administrators</div>
-                                    </label>
-                                    <!--end::Label-->
-                                </div>
-                                <!--end::Radio-->
+                                    <select name ="roles[]" id="select2-example-multiple" class="form-control form-control-solid mb-3 mb-lg-0" multiple="multiple" >
+                                        @foreach ($roles as $role => $name )
+                                         <option value="{{$name}}">{{ $name }}</option>
+                                        @endforeach
+                                    </select>
+                                   
+                            
                             </div>
                             <!--end::Input row-->
                         </div>
                         <!--end::Input group-->
-                            @endforeach
+                        
                           
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
@@ -367,21 +379,6 @@
 <!--begin::Card body-->
 <div class="card-body py-4">
 
-    @if (count($errors) > 0)
-    <div class="row animated fadeInUp">
-          @if (count($errors) > 0)
-    <div class="alert alert-warning fade in">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-     </div>
-     @endif
-    </div>
-       @endif
 
 <!--begin::Table-->
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">

@@ -36,7 +36,7 @@ var KTUsersAddUser = function () {
                             }
                         }
                     },
-                    'confirm_passwor': {
+                    'password_confirmation': {
                         validators: {
                             notEmpty: {
                                 message: 'confirm password is required'
