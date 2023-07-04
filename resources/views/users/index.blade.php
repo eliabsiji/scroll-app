@@ -297,6 +297,7 @@
                                         <div class="text-gray-600">Best for business owners and company administrators</div>
                                     </label>
                                     <!--end::Label-->
+
                                 </div>
                                 <!--end::Radio-->
                             </div>
