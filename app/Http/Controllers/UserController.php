@@ -61,21 +61,21 @@ class UserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:users,email',
+        //     'password' => 'required|same:confirm-password',
+        //     'roles' => 'required'
+        // ]);
     
-       echo  $input = $request->all();
-        // $input['password'] = Hash::make($input['password']);
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
     
-        // $user = User::create($input);
-        // $user->assignRole($request->input('roles'));
+        $user = User::create($input);
+        $user->assignRole($request->input('roles'));
     
-        // return redirect()->route('users.index')
-        //                 ->with('success','User created successfully');
+        return redirect()->route('users.index')
+                        ->with('success','User created successfully');
     }
     
     /**

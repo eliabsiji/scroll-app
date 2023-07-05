@@ -190,21 +190,7 @@
             <!--end::Close-->
         </div>
         <!--end::Modal header-->
-        @if (count($errors) > 0)
-        <div class="row animated fadeInUp">
-              @if (count($errors) > 0)
-        <div class="alert alert-warning fade in">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-         </div>
-         @endif
-        </div>
-           @endif
+    
     
         <!--begin::Modal body-->
         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
@@ -241,7 +227,7 @@
                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
                                 <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                                 <!--begin::Inputs-->
-                                <input type="file" name="avatar" accept=".png, .jpg')}}')}}, .jpeg" />
+                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
                                 <input type="hidden" name="avatar_remove" />
                                 <!--end::Inputs-->
                             </label>
@@ -376,6 +362,21 @@
 </div>
 <!--end::Card header-->
 
+@if (count($errors) > 0)
+<div class="row animated fadeInUp">
+      @if (count($errors) > 0)
+<div class="alert alert-warning fade in">
+<a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+ </div>
+ @endif
+</div>
+   @endif
 <!--begin::Card body-->
 <div class="card-body py-4">
 
@@ -464,13 +465,15 @@
                          @endcan
                          @can('user-edit')
                             <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],]) !!}
-                                {!! Form::submit('Delete', ['class' => 'menu-link px-3" data-kt-users-table-filter="delete_row']) !!}
+                            <div class="menu-item px-3" id="del_user">
+                                {!! Form::open(['id'=>'kt_modal_del_user_form','method' => 'DELETE','route' => ['users.destroy', $user->id],]) !!}
+                               <input type="hidden" id="userid" value="{{ $user->name }}">
+                                {!! Form::submit('Delete', ['class' => "menu-link px-3" ,'data-kt-users-table-filter'=>"delete_row"]) !!}
                                 {!! Form::close() !!}               
                             </div>
                             <!--end::Menu item-->
                             @endcan
+                           
                     </div>
                            <!--end::Menu-->
             </td>
@@ -486,6 +489,7 @@
    </div>
 <!--end::Card-->       
   </div>
+  
     <!--end::Content container-->
 </div>
 <!--end::Content-->		
