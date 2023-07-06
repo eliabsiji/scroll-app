@@ -121,6 +121,7 @@
                                 <!--end:Menu sub-->
                             </div>
                             <!--end:Menu item-->
+                           
                             <!--begin:Menu item-->
                             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                 <!--begin:Menu link-->
@@ -134,10 +135,11 @@
                                 <!--end:Menu link-->
                                 <!--begin:Menu sub-->
                                 <div class="menu-sub menu-sub-accordion">
+                                    @can('role-list')
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link" href="http://127.0.0.1:8000/html/assets/apps/user-management/roles/list.html">
+                                        <a class="menu-link" href="{{ route('roles.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -146,6 +148,7 @@
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
+                                    @endcan
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->

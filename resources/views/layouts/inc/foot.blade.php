@@ -31,6 +31,9 @@
     @if (Route::is('users.*'))
         @include('layouts.pages-assets.js.users-list-js')
     @endif
+    @if (Route::is('roles.*'))
+        @include('layouts.pages-assets.js.role-list-js')
+    @endif
 
   
 </body>

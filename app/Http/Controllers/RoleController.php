@@ -30,11 +30,26 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request): View
+    public function index(Request $request):View
     {
+        
+
         $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+       $permission = Permission::get();
+        $perm_title = Permission::get(['title']);
+        $array = []; 
+        foreach ($perm_title as $title ){
+               $array[] = $title->title ;
+         }
+      
+        $ar = implode(',', $array); 
+
+        // //echo $ar;
+        // // // $stat = array_count_values($array);
+         $ex = explode(',',$ar);
+         
+         
+       return view('roles.index', compact('roles'),compact('permission'))->with('perm_title',$ex);
     }
     
     /**

@@ -27,7 +27,17 @@ class PermissionTableSeeder extends Seeder
         ];
         
         foreach ($permissions as $permission) {
-             Permission::create(['name' => $permission]);
+            $str = $permission;
+            $delimiter = '-';
+            $words = explode($delimiter, $str);
+            
+            foreach ($words as $word) {
+                if($word == "user")
+                Permission::create(['name' => $permission,'title'=>"User Management"]);
+                if($word == "role")
+                Permission::create(['name' => $permission,'title'=>"Role Management"]);
+            }
+            //  Permission::create(['name' => $permission]);
         }
     }
 }
