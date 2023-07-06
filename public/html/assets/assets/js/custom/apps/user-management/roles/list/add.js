@@ -15,10 +15,17 @@ var KTUsersAddRole = function () {
             form,
             {
                 fields: {
-                    'role_name': {
+                    'name': {
                         validators: {
                             notEmpty: {
                                 message: 'Role name is required'
+                            }
+                        }
+                    },
+                     'permission': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Hey! Add at leat a permission'
                             }
                         }
                     },
@@ -31,7 +38,8 @@ var KTUsersAddRole = function () {
                         eleInvalidClass: '',
                         eleValidClass: ''
                     })
-                }
+                },
+                
             }
         );
 
@@ -133,7 +141,7 @@ var KTUsersAddRole = function () {
                                  }
                              });
  
-                             //form.submit(); // Submit form
+                             form.submit(); // Submit form
                          }, 2000);
                      } else {
                          // Show popup warning. For more info check the plugin's official documentation: https://sweetalert2.github.io/

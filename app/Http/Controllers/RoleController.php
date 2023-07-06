@@ -35,7 +35,7 @@ class RoleController extends Controller
         
 
         $roles = Role::orderBy('id','DESC')->paginate(5);
-       $permission = Permission::get();
+        $permission = Permission::get();
         $perm_title = Permission::get(['title']);
         $array = []; 
         foreach ($perm_title as $title ){
@@ -43,12 +43,7 @@ class RoleController extends Controller
          }
       
         $ar = implode(',', $array); 
-
-        // //echo $ar;
-        // // // $stat = array_count_values($array);
-         $ex = explode(',',$ar);
-         
-         
+        $ex = explode(',',$ar);
        return view('roles.index', compact('roles'),compact('permission'))->with('perm_title',$ex);
     }
     
@@ -76,11 +71,12 @@ class RoleController extends Controller
             'permission' => 'required',
         ]);
     
-        $role = Role::create(['name' => $request->input('name')]);
+        $role = Role::create(['name' => $request->input('name'),
+                              'title'=>$request->input('title')]);
         $role->syncPermissions($request->input('permission'));
     
         return redirect()->route('roles.index')
-                        ->with('success','Role created successfully');
+                         ->with('success','Role created successfully');
     }
     /**
      * Display the specified resource.
