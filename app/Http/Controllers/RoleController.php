@@ -103,12 +103,22 @@ class RoleController extends Controller
     public function edit($id): View
     {
         $role = Role::find($id);
-        $permission = Permission::get();
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+         ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
+        $permission = Permission::get();
+        $perm_title = Permission::get(['title']);
+        $array = []; 
+        foreach ($perm_title as $title ){
+               $array[] = $title->title ;
+         }
+      
+        $ar = implode(',', $array); 
+        $ex = explode(',',$ar);
+        
+           
     
-        return view('roles.edit',compact('role','permission','rolePermissions'));
+        return view('roles.edit',compact('role','permission','rolePermissions'))->with('perm_title',$ex);
     }
     
     /**

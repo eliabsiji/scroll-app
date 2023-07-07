@@ -217,7 +217,7 @@
                     <div class="card-header">
                         <!--begin::Card title-->
                         <div class="card-title">
-                            <h2>Administrator</h2>
+                            <h2>{{ $role->name }}</h2>
                         </div>
                         <!--end::Card title-->
                     </div>
@@ -636,7 +636,9 @@
         </div>
         <!--end::Modal dialog-->
     </div>
-    <!--end::Modal - Update role--><!--end::Modals-->        </div>
+    <!--end::Modal - Update role--><!--end::Modals-->       
+
+       </div>
             <!--end::Content container-->
         </div>
     <!--end::Content-->					
