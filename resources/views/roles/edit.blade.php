@@ -92,11 +92,40 @@
     <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
         <!--begin::Card title-->
         <div class="card-title m-0">
-            <h3 class="fw-bold m-0">EditDetails</h3>
+            <h3 class="fw-bold m-0">Edit Details</h3>
         </div>
         <!--end::Card title-->
     </div>
-    <!--begin::Card header-->
+   
+ <!--begin::Toolbar-->
+ <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+    <!--begin::Filter-->
+    <a href="{{ route('roles.index') }}" type="button" class="btn btn-light-primary me-3" >
+        <i class="ki-duotone fs-2"><span class="path1"></span><span class="path2"></span></i>   << Back  
+    </a>
+    <!--begin::Menu 1-->
+    <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+    <!--begin::Header-->
+    <div class="px-7 py-5">
+        <a href="" class="fs-5 text-dark fw-bold"> </a>
+    </div>
+    <!--end::Header-->
+    
+    <!--begin::Separator-->
+    <div class="separator border-gray-200"></div>
+    <!--end::Separator-->
+    
+   
+    </div>
+    <!--end::Menu 1-->    <!--end::Filter-->
+    
+    
+    
+   
+    </div>
+    <!--end::Toolbar-->
+
+
 
     <!--begin::Content-->
     <div id="kt_account_settings_profile_details" class="collapse show">

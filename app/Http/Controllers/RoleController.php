@@ -34,7 +34,11 @@ class RoleController extends Controller
     {
         
 
-        $roles = Role::orderBy('id','DESC')->paginate(5);
+        $roles = Role::orderBy('name','DESC')->get();
+            foreach ($roles as $role => $value) {
+                $roles_num = Role::where('name',$value->name)->with('users')->count();
+            }
+       
         $permission = Permission::get();
         $perm_title = Permission::get(['title']);
         $array = []; 
@@ -44,7 +48,8 @@ class RoleController extends Controller
       
         $ar = implode(',', $array); 
         $ex = explode(',',$ar);
-       return view('roles.index', compact('roles'),compact('permission'))->with('perm_title',$ex);
+       return view('roles.index', compact('roles'),compact('permission'))->with('perm_title',$ex)
+                                                                         ->with('roles_num',$roles_num);
     }
     
     /**
