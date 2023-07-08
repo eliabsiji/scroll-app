@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
@@ -35,9 +36,7 @@ class RoleController extends Controller
         
 
         $roles = Role::orderBy('name','DESC')->get();
-            foreach ($roles as $role => $value) {
-                $roles_num = Role::where('name',$value->name)->with('users')->count();
-            }
+          
        
         $permission = Permission::get();
         $perm_title = Permission::get(['title']);
@@ -48,8 +47,7 @@ class RoleController extends Controller
       
         $ar = implode(',', $array); 
         $ex = explode(',',$ar);
-       return view('roles.index', compact('roles'),compact('permission'))->with('perm_title',$ex)
-                                                                         ->with('roles_num',$roles_num);
+       return view('roles.index', compact('roles'),compact('permission'))->with('perm_title',$ex);
     }
     
     /**
@@ -149,6 +147,52 @@ class RoleController extends Controller
         return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
+
+      /**
+     * add user to role..
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function adduser($id): View
+    {
+       
+        $role = Role::find($id);
+        $r = $role->name;
+        $users = User::whereHas('roles', function($q){ $q->where('name', '!=',$r); })
+                         ->get();
+        return view('roles.adduser')->with('role',$role)
+                                    ->with('users',$users);
+    }
+
+
+    
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateuserrole(Request $request): RedirectResponse
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'roleid' => 'required'
+        ]);
+    
+      
+        $input = $request->all();
+        $user = User::find($request->input('name'));
+       
+        $user->assignRole($request->input('roleid'));
+    
+        return redirect()->route('roles.index')
+                        ->with('success','User added to role successfully');
+    }
+    
+
+
     /**
      * Remove the specified resource from storage.
      *

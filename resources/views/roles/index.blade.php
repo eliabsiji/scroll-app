@@ -1,7 +1,11 @@
 
 @extends('layouts.master')
 @section('content')
-<?php use Spatie\Permission\Models\Permission; ?>
+<?php
+use Spatie\Permission\Models\Permission;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+?>
 
                 <!--begin::Main-->
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -84,111 +88,115 @@
                 
     
     <!--begin::Menu 1-->
-    <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_648698624af08">
-        <!--begin::Header-->
-        <div class="px-7 py-5">
-            <div class="fs-5 text-dark fw-bold">Filter Options</div>
-        </div>
-        <!--end::Header-->
-    
-        <!--begin::Menu separator-->
-        <div class="separator border-gray-200"></div>
-        <!--end::Menu separator-->
-    
-        <!--begin::Form-->
-        <div class="px-7 py-5">
-            <!--begin::Input group-->
-            <div class="mb-10">
-                <!--begin::Label-->
-                <label class="form-label fw-semibold">Status:</label>
-                <!--end::Label-->
-    
-                <!--begin::Input-->
-                <div>
-                    <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_648698624af08" data-allow-clear="true">
-                        <option></option>
-                        <option value="1">Approved</option>
-                        <option value="2">Pending</option>
-                        <option value="2">In Process</option>
-                        <option value="2">Rejected</option>
-                    </select>
+            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_648698624af08">
+                <!--begin::Header-->
+                <div class="px-7 py-5">
+                    <div class="fs-5 text-dark fw-bold">Filter Options</div>
                 </div>
-                <!--end::Input-->
-            </div>
-            <!--end::Input group-->
-    
-            <!--begin::Input group-->
-            <div class="mb-10">
-                <!--begin::Label-->
-                <label class="form-label fw-semibold">Member Type:</label>
-                <!--end::Label-->
-    
-                <!--begin::Options-->
-                <div class="d-flex">
-                    <!--begin::Options-->    
-                    <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                        <input class="form-check-input" type="checkbox" value="1"/>
-                        <span class="form-check-label">
-                            Author
-                        </span>
-                    </label>
-                    <!--end::Options-->    
-    
-                    <!--begin::Options-->    
-                    <label class="form-check form-check-sm form-check-custom form-check-solid">
-                        <input class="form-check-input" type="checkbox" value="2" checked="checked"/>
-                        <span class="form-check-label">
-                            Customer
-                        </span>
-                    </label>
-                    <!--end::Options-->    
-                </div>        
-                <!--end::Options-->    
-            </div>
-            <!--end::Input group-->
-    
-            <!--begin::Input group-->
-            <div class="mb-10">
-                <!--begin::Label-->
-                <label class="form-label fw-semibold">Notifications:</label>
-                <!--end::Label-->
-    
-                <!--begin::Switch-->
-                <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                    <input class="form-check-input" type="checkbox" value="" name="notifications" checked />
-                    <label class="form-check-label">
-                        Enabled
-                    </label>
+                <!--end::Header-->
+            
+                <!--begin::Menu separator-->
+                <div class="separator border-gray-200"></div>
+                <!--end::Menu separator-->
+            
+                <!--begin::Form-->
+                <div class="px-7 py-5">
+                    <!--begin::Input group-->
+                    <div class="mb-10">
+                        <!--begin::Label-->
+                        <label class="form-label fw-semibold">Status:</label>
+                        <!--end::Label-->
+            
+                        <!--begin::Input-->
+                        <div>
+                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_648698624af08" data-allow-clear="true">
+                                <option></option>
+                                <option value="1">Approved</option>
+                                <option value="2">Pending</option>
+                                <option value="2">In Process</option>
+                                <option value="2">Rejected</option>
+                            </select>
+                        </div>
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+            
+                    <!--begin::Input group-->
+                    <div class="mb-10">
+                        <!--begin::Label-->
+                        <label class="form-label fw-semibold">Member Type:</label>
+                        <!--end::Label-->
+            
+                        <!--begin::Options-->
+                        <div class="d-flex">
+                            <!--begin::Options-->    
+                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
+                                <input class="form-check-input" type="checkbox" value="1"/>
+                                <span class="form-check-label">
+                                    Author
+                                </span>
+                            </label>
+                            <!--end::Options-->    
+            
+                            <!--begin::Options-->    
+                            <label class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="2" checked="checked"/>
+                                <span class="form-check-label">
+                                    Customer
+                                </span>
+                            </label>
+                            <!--end::Options-->    
+                        </div>        
+                        <!--end::Options-->    
+                    </div>
+                    <!--end::Input group-->
+            
+                    <!--begin::Input group-->
+                    <div class="mb-10">
+                        <!--begin::Label-->
+                        <label class="form-label fw-semibold">Notifications:</label>
+                        <!--end::Label-->
+            
+                        <!--begin::Switch-->
+                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
+                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked />
+                            <label class="form-check-label">
+                                Enabled
+                            </label>
+                        </div>
+                        <!--end::Switch-->
+                    </div>
+                    <!--end::Input group-->
+            
+                    <!--begin::Actions-->
+                    <div class="d-flex justify-content-end">
+                        <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
+            
+                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
+                    </div>
+                    <!--end::Actions-->
                 </div>
-                <!--end::Switch-->
+                <!--end::Form-->
             </div>
-            <!--end::Input group-->
-    
-            <!--begin::Actions-->
-            <div class="d-flex justify-content-end">
-                <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-    
-                <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-            </div>
-            <!--end::Actions-->
-        </div>
-        <!--end::Form-->
-    </div>
-    <!--end::Menu 1-->        </div>
+    <!--end::Menu 1-->       
+     </div>
             <!--end::Filter menu-->
         
         
         <!--begin::Secondary button-->
+        
             <!--end::Secondary button-->
         
       
-    </div>
+           </div>
     <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
-        </div>
+ </div>
     <!--end::Toolbar-->                                        
-                        
+          
+    
+
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content  flex-column-fluid " >
         
@@ -221,11 +229,19 @@
                         </div>
                         <!--end::Card title-->
                     </div>
+                   
                     <!--end::Card header-->
     
                     <!--begin::Card body-->
                     <div class="card-body pt-1">
                         <!--begin::Users-->
+                     <?php  
+                        // $roles = Role::orderBy('name','DESC')->get();
+                        // foreach ($roles as $role => $value) {
+                            $roles_num =  DB::table('model_has_roles')->where('role_id',$role->id)->count();
+                        // }
+
+                        ?>
                         <div class="fw-bold text-gray-600 mb-5">Total users with this role: {{ $roles_num }}</div>
                         <!--end::Users-->
                             
@@ -265,7 +281,7 @@
                     <!--end::Card body-->
     
                     <!--begin::Card footer-->
-                    <div class="card-footer flex-wrap pt-0">
+                    <div class="card-footer flex-wrap pt-3">
 
                         @can('role-list')
                         <a href="{{ route('roles.show',$role->id) }}" class="btn btn-light btn-sm  btn-active-primary my-1 me-2">View </a>
@@ -276,14 +292,20 @@
                         @endcan
                        
                         @can('role-delete')
-                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'class' => 'btn ']) !!}
+                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'class' => 'btn my-1 me-2 ']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xm btn-active-light-danger my-1']) !!}
                         {!! Form::close() !!}
                         @endcan
                     </div>
                     <!--end::Card footer-->
+                    <!--begin::Add user-->
+                    <a href="{{ route('roles.adduser',$role->id) }}" type="button" class="btn btn-light btn-sm  btn-active-primary my-1 me-2 ">
+                        <i class="ki-duotone ki-plus fs-2"></i>        Add User
+                    </a>
+                    <!--end::Add user-->
                 </div>
                 <!--end::Card-->
+                 
             </div>
             <!--end::Col-->
               
