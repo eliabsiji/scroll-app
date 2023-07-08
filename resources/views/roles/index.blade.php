@@ -266,9 +266,20 @@
     
                     <!--begin::Card footer-->
                     <div class="card-footer flex-wrap pt-0">
-                        <a href="{{ route('roles.show',$role->id) }}" class="btn btn-light btn-active-primary my-1 me-2">View Role</a>
-    
-                        <a href="{{ route('roles.edit',$role->id) }}" class="btn btn-light btn-active-light-primary my-1" >Edit Role</a>
+
+                        @can('role-list')
+                        <a href="{{ route('roles.show',$role->id) }}" class="btn btn-light btn-sm  btn-active-primary my-1 me-2">View </a>
+                        @endcan
+                        
+                        @can('role-edit')
+                        <a href="{{ route('roles.edit',$role->id) }}" class="btn btn-light btn-sm btn-active-success my-1" >Edit </a>
+                        @endcan
+                       
+                        @can('role-delete')
+                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'class' => 'btn ']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xm btn-active-light-danger my-1']) !!}
+                        {!! Form::close() !!}
+                        @endcan
                     </div>
                     <!--end::Card footer-->
                 </div>
