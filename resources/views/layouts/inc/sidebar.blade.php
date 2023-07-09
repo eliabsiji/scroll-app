@@ -149,10 +149,11 @@
                                     </div>
                                     <!--end:Menu item-->
                                     @endcan
+                                    @can('role-show')
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link" href="http://127.0.0.1:8000/html/assets/apps/user-management/roles/view.html">
+                                        <a class="menu-link" href="{{ route('roles.show') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -161,14 +162,16 @@
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
+                                    @endcan
                                 </div>
                                 <!--end:Menu sub-->
                             </div>
                             <!--end:Menu item-->
+                            @can('permission-list')
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="http://127.0.0.1:8000/html/assets/apps/user-management/permissions.html">
+                                <a class="menu-link" href="{{ route('permissions.index') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -177,6 +180,7 @@
                                 <!--end:Menu link-->
                             </div>
                             <!--end:Menu item-->
+                            @endcan
                         </div>
                         <!--end:Menu sub-->
                     </div>

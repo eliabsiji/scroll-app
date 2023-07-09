@@ -24,6 +24,10 @@ class PermissionTableSeeder extends Seeder
            'role-edit',
            'role-delete',
            'role-updateuserrole',
+           'permission-list',
+           'permission-create',
+           'permission-show',
+           'permission-delete',
            
         ];
         
@@ -37,6 +41,8 @@ class PermissionTableSeeder extends Seeder
                 Permission::create(['name' => $permission,'title'=>"User Management"]);
                 if($word == "role")
                 Permission::create(['name' => $permission,'title'=>"Role Management"]);
+                if($word == "permission")
+                Permission::create(['name' => $permission,'title'=>"Permission Management"]);
             }
             //  Permission::create(['name' => $permission]);
         }
