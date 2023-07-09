@@ -28,7 +28,7 @@ class PermissionController extends Controller
      */
     public function index(Request $request)
     {
-        echo route('permissions.index');
+        
         $data = Permission::orderBy('name','DESC')->get();
 
         return view('permissions.index', compact('data'));

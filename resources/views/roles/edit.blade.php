@@ -48,7 +48,29 @@
         <!--end::Breadcrumb-->
     </div>
 <!--end::Page title-->
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
+@if (\Session::has('status'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+{{ \Session::get('status') }}
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+@if (\Session::has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+{{ \Session::get('success') }}
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
         </div>
         <!--end::Toolbar container-->
     </div>
@@ -57,30 +79,6 @@
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content  flex-column-fluid " >
     
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-@if (\Session::has('status'))
-<div class="alert alert-success">
-
-     <p>{{ \Session::get('status') }}</p>
- </div>
-@endif
- @if (\Session::has('success'))
- <div class="alert alert-success">
-
-     <p>{{ \Session::get('success') }}</p>
- </div>
-@endif
-
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container  container-xxl ">
             

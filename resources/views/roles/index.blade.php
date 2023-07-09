@@ -27,18 +27,7 @@ use Spatie\Permission\Models\Role;
             Roles List
                 </h1>
         <!--end::Title-->
-        @if (\Session::has('status'))
-        <div class="alert alert-success">
-      
-             <p>{{ \Session::get('status') }}</p>
-         </div>
-     @endif
-         @if (\Session::has('success'))
-         <div class="alert alert-success">
-    
-             <p>{{ \Session::get('success') }}</p>
-         </div>
-     @endif
+     
 
                 
             <!--begin::Breadcrumb-->
@@ -190,8 +179,33 @@ use Spatie\Permission\Models\Role;
       
            </div>
     <!--end::Actions-->
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if (\Session::has('status'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ \Session::get('status') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+ @if (\Session::has('success'))
+ <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ \Session::get('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
             </div>
             <!--end::Toolbar container-->
+
  </div>
     <!--end::Toolbar-->                                        
           
@@ -203,16 +217,7 @@ use Spatie\Permission\Models\Role;
                
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container  container-xxl ">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+               
     <!--begin::Row-->
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 g-xl-9">
        
