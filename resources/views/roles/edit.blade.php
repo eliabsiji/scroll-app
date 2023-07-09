@@ -215,6 +215,9 @@
                                                 if(strpos($v->name, "delete")){
                                                 $word = "Delete";
                                                 }
+                                                if(strpos($v->name, "updateuserrole")){
+                                                        $word = "Add user role";
+                                                        }
                                     ?>
                                       <!--begin::Options-->
                                       <td>

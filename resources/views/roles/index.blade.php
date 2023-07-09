@@ -297,12 +297,14 @@ use Spatie\Permission\Models\Role;
                         {!! Form::close() !!}
                         @endcan
                     </div>
-                    <!--end::Card footer-->
+                    <!--end::Card footer-->  
+                    @can('role-updateuserrole')
                     <!--begin::Add user-->
                     <a href="{{ route('roles.adduser',$role->id) }}" type="button" class="btn btn-light btn-sm  btn-active-primary my-1 me-2 ">
                         <i class="ki-duotone ki-plus fs-2"></i>        Add User
                     </a>
                     <!--end::Add user-->
+                    @endcan
                 </div>
                 <!--end::Card-->
                  
@@ -442,6 +444,9 @@ use Spatie\Permission\Models\Role;
                                                         }
                                                         if(strpos($v->name, "delete")){
                                                         $word = "Delete";
+                                                        }
+                                                        if(strpos($v->name, "updateuserrole")){
+                                                        $word = "Add user role";
                                                         }
                                             ?>
                                               <!--begin::Options-->

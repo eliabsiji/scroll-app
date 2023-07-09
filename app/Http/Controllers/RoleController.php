@@ -20,10 +20,11 @@ class RoleController extends Controller
      */
     function __construct()
     {
-         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:role-list|role-create|role-edit|role-delete|addduser|updateuserrole', ['only' => ['index','store']]);
          $this->middleware('permission:role-create', ['only' => ['create','store']]);
          $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:role-updateuserrole', ['only' => ['adduser','updateuserrole']]);
     }
     
     /**
@@ -159,8 +160,8 @@ class RoleController extends Controller
        
         $role = Role::find($id);
         $r = $role->name;
-        $users = User::whereHas('roles', function($q){ $q->where('name', '!=',$r); })
-                         ->get();
+        $users = User::whereDoesntHave('roles', function ($q) use ($r)  {
+                            $q->where('name', $r); })->get();
         return view('roles.adduser')->with('role',$role)
                                     ->with('users',$users);
     }
