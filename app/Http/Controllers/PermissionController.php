@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
@@ -29,8 +31,8 @@ class PermissionController extends Controller
     public function index(Request $request)
     {
         
-        $data = Permission::orderBy('name','DESC')->get();
-
+        $data = Permission::get();
+      
         return view('permissions.index', compact('data'));
     }
 
